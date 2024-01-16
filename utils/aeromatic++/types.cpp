@@ -199,9 +199,7 @@ std::string Param::get_unit(bool upper, unsigned utype, bool convert)
 {
     std::string str = _cvt_t[utype].name[convert];
     if (upper) {
-        std::transform(str.begin(), str.end(), str.begin(),
-                       [](unsigned char c){ return std::toupper(c); }
-                      );
+        std::transform(str.begin(), str.end(), str.begin(), (int (*)(int))std::toupper);
     }
     return str;
 }
